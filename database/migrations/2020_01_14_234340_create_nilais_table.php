@@ -15,19 +15,19 @@ class CreateNilaisTable extends Migration
     {
         Schema::create('nilai', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('uh1');
-            $table->string('uh2');
-            $table->string('uh3');
-            $table->string('uh4');
-            $table->string('uh5');
-            $table->string('uh6');
-            $table->string('uh7');
-            $table->string('uh8');
-            $table->string('uh9');
-            $table->string('uh10');
-            $table->string('uh11');
-            $table->string('uts');
-            $table->string('uas');
+            $table->float('uh1')->nullable();
+            $table->float('uh2')->nullable();
+            $table->float('uh3')->nullable();
+            $table->float('uh4')->nullable();
+            $table->float('uh5')->nullable();
+            $table->float('uh6')->nullable();
+            $table->float('uh7')->nullable();
+            $table->float('uh8')->nullable();
+            $table->float('uh9')->nullable();
+            $table->float('uh10')->nullable();
+            $table->float('uh11')->nullable();
+            $table->float('uts')->nullable();
+            $table->float('uas')->nullable();
             $table->timestamps();
         });
     }

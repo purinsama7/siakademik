@@ -15,88 +15,86 @@
                                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"> <span class="btn btn-sm btn-primary"> Tambah Tahun</span></button>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <form method="POST">
-                                <select class="form-control" name="tahun" id="tahun">
-                                    <option selected="false">
-                                        Tahun Pelajaran
-                                    </option>
-                                    @foreach ($pilihtahun as $tahun)
-                                <option value="{{$tahun->id}}">{{$tahun->tahun_pel}}  {{$tahun->semester}}</option>
-
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="form-control" name="semester" id="semester">
-                                    <option selected="false">
-                                        Semester
-                                    </option>
-                                    @foreach ($pilihtahun as $tahun)
-                                    <option value="{{$tahun->id}}">{{$tahun->semester}}</option>
-
+                            <form method="POST" action="/nilai/get-nilai">
+                                {{ csrf_field() }}
+                                <div class="col-sm-3">
+                                    <select class="form-control" name="tahun" id="tahun">
+                                        @foreach ($pilihtahun as $tahun)
+                                            <option value="{{$tahun->id}}">{{$tahun->tahun_pel}}</option>
                                         @endforeach
                                     </select>
-                                </select>
-                            </div>
-                        </form>
-                            <div class="col-sm-3">
-                                <button class="btn btn-primary rounded" type="submit" id="search" name="search"> Cari  <i class="fa fa-search"></i></button>
-                            </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="form-control" name="semester" id="semester">
+                                        <option value="ganjil">Ganjil</option>
+                                        <option value="genap">Genap</option>
+                                        </select>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-primary rounded" type="submit" id="search" name="search"> Cari  <i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
                             <br/>
 							<div class="panel-body">
                                 <hr/>
-								<table id="example" class="table table-bordered">
-									<thead>
-										<tr class=" text-center" role="row">
-                                            <th class="text-center">Mata Pelajaran</th>
-                                            <th class="text-center">NAMA SISWA</th>
-                                            <th class="text-center">UH1</th>
-                                            <th class="text-center">UH2</th>
-                                            <th class="text-center">UH3</th>
-                                            <th class="text-center">UH4</th>
-                                            <th class="text-center">UH5</th>
-                                            <th class="text-center">UH6</th>
-                                            <th class="text-center">UH7</th>
-                                            <th class="text-center">UH8</th>
-                                            <th class="text-center">UH9</th>
-                                            <th class="text-center">UH10</th>
-                                            <th class="text-center">UH11</th>
-                                            <th class="text-center">UTS</th>
-                                            <th class="text-center">UAS</th>
-                                            <th class="text-center">OPSI</th>
-										</tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($data_nilai as $nilai)
-                                        <tr class="text-center">
-                                            <td>{{ $nilai->mapel->nama_mapel }}</td>
-                                            <td>{{ $nilai->siswa->nama_depan }}</td>
-                                            <td>{{ $nilai->uh1 }}</td>
-                                            <td>{{ $nilai->uh2 }}</td>
-                                            <td>{{ $nilai->uh3 }}</td>
-                                            <td>{{ $nilai->uh4 }}</td>
-                                            <td>{{ $nilai->uh5 }}</td>
-                                            <td>{{ $nilai->uh6 }}</td>
-                                            <td>{{ $nilai->uh7 }}</td>
-                                            <td>{{ $nilai->uh8 }}</td>
-                                            <td>{{ $nilai->uh9 }}</td>
-                                            <td>{{ $nilai->uh10 }}</td>
-                                            <td>{{ $nilai->uh11 }}</td>
-                                            <td>{{ $nilai->uts }}</td>
-                                            <td>{{ $nilai->uas }}</td>
-                                            <td>
-                                                <a href="/nilai/{{$nilai->id}}/edit" class="btn btn-cirle btn-warning btn-sm">
-                                                    <i class="fa fa-edit" ></i>
-                                                </a>
-                                                <a href="/nilai/{{$nilai->id}}/delete" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Mau Hapus Data') ">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-								</table>
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-bordered">
+                                        <thead>
+                                            <tr class=" text-center" role="row">
+                                                <th class="text-center">Mata Pelajaran</th>
+                                                <th class="text-center">NAMA SISWA</th>
+                                                <th class="text-center">TAHUN AJAR</th>
+                                                <th class="text-center">SEMESTER</th>
+                                                <th class="text-center">UH1</th>
+                                                <th class="text-center">UH2</th>
+                                                <th class="text-center">UH3</th>
+                                                <th class="text-center">UH4</th>
+                                                <th class="text-center">UH5</th>
+                                                <th class="text-center">UH6</th>
+                                                <th class="text-center">UH7</th>
+                                                <th class="text-center">UH8</th>
+                                                <th class="text-center">UH9</th>
+                                                <th class="text-center">UH10</th>
+                                                <th class="text-center">UH11</th>
+                                                <th class="text-center">UTS</th>
+                                                <th class="text-center">UAS</th>
+                                                <th class="text-center">OPSI</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($data_nilai as $nilai)
+                                            <tr class="text-center">
+                                                <td>{{ $nilai->mapel->nama_mapel }}</td>
+                                                <td>{{ $nilai->siswa->nama_depan }}</td>
+                                                <td>{{ $nilai->tahun_tahun_pel }}</td>
+                                                <td>{{ $nilai->tahun_semester }}</td>
+                                                <td>{{ $nilai->uh1 }}</td>
+                                                <td>{{ $nilai->uh2 }}</td>
+                                                <td>{{ $nilai->uh3 }}</td>
+                                                <td>{{ $nilai->uh4 }}</td>
+                                                <td>{{ $nilai->uh5 }}</td>
+                                                <td>{{ $nilai->uh6 }}</td>
+                                                <td>{{ $nilai->uh7 }}</td>
+                                                <td>{{ $nilai->uh8 }}</td>
+                                                <td>{{ $nilai->uh9 }}</td>
+                                                <td>{{ $nilai->uh10 }}</td>
+                                                <td>{{ $nilai->uh11 }}</td>
+                                                <td>{{ $nilai->uts }}</td>
+                                                <td>{{ $nilai->uas }}</td>
+                                                <td>
+                                                    <a href="/nilai/{{$nilai->id}}/edit" class="btn btn-cirle btn-warning btn-sm">
+                                                        <i class="fa fa-edit" ></i>
+                                                    </a>
+                                                    <a href="/nilai/{{$nilai->id}}/delete" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Mau Hapus Data') ">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
 							</div>
 						</div>
                     </div>

@@ -17,11 +17,22 @@ class NilaiController extends Controller
     //
     public function index(Request $request)
     {
-        $pilihtahun = Tahun::all();
+        $pilihtahun = Tahun::groupBy('tahun_pel')->get();
         $pilsiswa = Siswa::all();
         $data_nilai = Nilai::all();
         return view('nilai.index', compact('data_nilai','pilihtahun', 'pilsiswa'));
     }
+
+    public function getNilai(Request $request)
+    {
+        $tahun = $request->input('tahun');
+        $semester = $request->input('semester');
+        $pilihtahun = Tahun::groupBy('tahun_pel')->get();
+        $pilsiswa = Siswa::all();
+        $data_nilai = Nilai::where('tahun_id', $tahun)->where('tahun_semester', $semester)->get();
+        return view('nilai.index', compact('data_nilai','pilihtahun', 'pilsiswa'));
+    }
+
     public function create(Request $request)
     {
         //insert ke tabel Siswa

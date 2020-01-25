@@ -9,33 +9,25 @@
                         <div class="panel">
 							<div class="panel-heading">
                                 <div class="card-header py-3">
-                                <h1 class="m-0 font-weight-bold text-primary">Data Nilai Pengetahuan</h1>
+                                <h1 class="m-0 font-weight-bold text-primary">Data Nilai Keterampilan</h1>
                                 </div>
                                 <div class="right">
                                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"> <span class="btn btn-sm btn-primary"> Tambah Tahun</span></button>
                                 </div>
                             </div>
-                            <form action="/ketram/cek_nilai" method="POST">
+                            <form action="/ketram/get-nilai" method="POST">
+                                {{ csrf_field() }}
                                 <div class="col-sm-3">
                                     <select class="form-control" name="tahun" id="tahun">
-                                        <option selected="false">
-                                            Tahun Pelajaran
-                                        </option>
                                         @foreach ($pilihtahun as $tahun)
-                                    <option value="{{$tahun->id}}">{{$tahun->tahun_pel}}</option>
-
+                                            <option value="{{$tahun->id}}">{{$tahun->tahun_pel}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="form-control" name="semester" id="semester">
-                                        <option selected="false">
-                                            Semester
-                                        </option>
-                                        @foreach ($pilihtahun as $tahun)
-                                        <option value="{{$tahun->id}}">{{$tahun->semester}}</option>
-
-                                            @endforeach
+                                        <option value="ganjil">Ganjil</option>
+                                        <option value="genap">Genap</option>
                                         </select>
                                     </select>
                                 </div>
@@ -46,7 +38,8 @@
                             <br/>
 							<div class="panel-body">
                                 <hr/>
-								<table id="example" class="table table-bordered">
+								<div class="table-responsive">
+                                    <table id="example" class="table table-bordered">
 									<thead>
 										<tr class=" text-center" role="row">
                                             <th class="text-center">Mata Pelajaran</th>
@@ -60,8 +53,6 @@
                                             <th class="text-center">UH7</th>
                                             <th class="text-center">UH8</th>
                                             <th class="text-center">UH9</th>
-                                            <th class="text-center">UH10</th>
-                                            <th class="text-center">UH11</th>
                                             <th class="text-center">UTS</th>
                                             <th class="text-center">UAS</th>
                                             <th class="text-center">OPSI</th>
@@ -81,8 +72,6 @@
                                             <td>{{ $nilai->uh7 }}</td>
                                             <td>{{ $nilai->uh8 }}</td>
                                             <td>{{ $nilai->uh9 }}</td>
-                                            <td>{{ $nilai->uh10 }}</td>
-                                            <td>{{ $nilai->uh11 }}</td>
                                             <td>{{ $nilai->uts }}</td>
                                             <td>{{ $nilai->uas }}</td>
                                             <td>
@@ -97,6 +86,7 @@
                                         @endforeach
                                     </tbody>
 								</table>
+                                </div>
 							</div>
 						</div>
                     </div>
@@ -170,16 +160,6 @@
                 <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 9</label>
                 <input name="uh9" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 9">
-                </div>
-                <div class="form-group col-md-6">
-                <label for="exampleFormControlInput4">UH 10</label>
-                <input name="uh10" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 10">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                <label for="exampleFormControlInput1">UH 11</label>
-                <input name="uh11" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 11">
                 </div>
                 <div class="form-group col-md-4">
                 <label for="exampleFormControlInput4">UTS</label>

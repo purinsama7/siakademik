@@ -96,6 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/nilai','NilaiController@index')->name('index');
     Route::get('/nilai/{id}','NilaiController@nilai')->name('nilai');
     Route::post('/nilai/create', 'NilaiController@create');
+    Route::post('/nilai/get-nilai', 'NilaiController@getNilai');
     Route::get('/nilai/{id}/edit','NilaiController@edit');
     Route::post('/nilai/{id}/update', 'NilaiController@update');
     Route::get('/nilai/{id}/delete','NilaiController@delete');
