@@ -21,6 +21,8 @@
 										<tr class=" text-center" role="row">
                                             <th class="text-center">KODE MAPEL</th>
                                             <th class="text-center">MATA PELAJARAN</th>
+                                            <th class="text-center">KKM</th>
+                                            <th class="text-center">GRADE</th>
                                             <th class="text-center">OPSI</th>
 										</tr>
 									</thead>
@@ -29,6 +31,8 @@
                                         <tr class="text-center">
                                             <td>{{ $mapel->kode_mapel }}</td>
                                             <td>{{ $mapel->nama_mapel }}</td>
+                                            <td>{{ $mapel->kkm }}</td>
+                                            <td>{{ $mapel->grade }}</td>
                                             <td>
                                                 <a href="/mapel/{{$mapel->id}}/edit" class="btn btn-cirle btn-warning btn-sm">
                                                     <i class="fa fa-edit" ></i>
@@ -68,7 +72,11 @@
         </div>
         <div class="form-group col-md-12">
             <label for="exampleFormControlTextarea1">Mata Pelajaran</label>
-            <input name="nama_mapel" type="emaik" class="form-control" id="exampleFormControlInput1" placeholder="Mata Pelajaran">
+            <input name="nama_mapel" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Mata Pelajaran">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="exampleFormControlTextarea1">KKM</label>
+            <input name="kkm" type="number" class="form-control" id="exampleFormControlInput1" placeholder="KKM">
         </div>
         <div class="modal-footer col-1">
             <br/>

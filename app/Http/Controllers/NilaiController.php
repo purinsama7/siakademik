@@ -74,27 +74,49 @@ class NilaiController extends Controller
             $request->input('uh10') + 
             $request->input('uh11');
 
-        $rataUh = $total/$pembagi;
-
+        $pilihmapel = explode(",", $request->input('mapel_id'));
         $pilihtahun = explode(",", $request->input('tahun'));
-        dd($pilihtahun[0]);
+
+        $rataUh = $total/$pembagi;
+        $rataTotal = (($rataUh * 2) + $request->input('uts') + $request->input('uas'))/4;
+        $gradeAngka = $rataTotal + $pilihmapel[1];
+
+        if($gradeAngka >= 1 && $gradeAngka <= 80){
+            $gradeHuruf = 'C';
+        }elseif($gradeAngka >= 81 && $gradeAngka <= 90){
+            $gradeHuruf = 'B';
+        }elseif($gradeAngka >= 91 && $gradeAngka <= 100){
+            $gradeHuruf = 'A';
+        }else{
+            $gradeHuruf = '-';
+        }
+
         $nilai = new Nilai;
         $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
-        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->mapel_id = $pilihmapel[0];
+        $nilai->tahun_id = $pilihtahun[0];
+        $nilai->tahun_tahun_pel = $pilihtahun[1];
+        $nilai->tahun_semester = $request->input('semester');
+        $nilai->uh1 = $request->input('uh1');
+        $nilai->uh2 = $request->input('uh2');
+        $nilai->uh3 = $request->input('uh3');
+        $nilai->uh4 = $request->input('uh4');
+        $nilai->uh5 = $request->input('uh5');
+        $nilai->uh6 = $request->input('uh6');
+        $nilai->uh7 = $request->input('uh7');
+        $nilai->uh8 = $request->input('uh8');
+        $nilai->uh9 = $request->input('uh9');
+        $nilai->uh10 = $request->input('uh10');
+        $nilai->uh11 = $request->input('uh11');
+        $nilai->rataUh = $rataUh;
+        $nilai->uts = $request->input('uts');
+        $nilai->uas = $request->input('uas');
+        $nilai->rataTotal = $rataTotal;
+        $nilai->grade = $gradeHuruf;
         //insert ke tabel Siswa
-        // $nilai = \App\Nilai::create($request->all());
-        // return redirect('/nilai')->with('Sukses','Data Berhasil Diinput.');
+        $nilai->save();
+        
+        return redirect('/nilai')->with('Sukses','Data Berhasil Diinput.');
     }
     public function edit($id)
     {

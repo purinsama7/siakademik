@@ -145,25 +145,10 @@
                     <label for="exampleFormControlInput1">MAPEL</label>
                     <select class="form-control" id="mapel" name="mapel_id">
                         @foreach ($pilmapel as $mapel)
-                    <option value="{{$mapel->id}}">{{$mapel->nama_mapel}}</option>
+                    <option value="{{$mapel->id}},{{$mapel->grade}}">{{$mapel->nama_mapel}}</option>
                         @endforeach
                     </select>
                     </div>
-                    <div class="form-group col-md-6">
-                    <label for="exampleFormControlInput4">Tahun</label>
-                        <select name="tahun_tahun_pel" class="form-control" id="exampleFormControinputState">
-                            <option value="2017/2018">2017/2018</option>
-                            <option value="2018/2019">2018/2019</option>
-                            <option value="2019/2020">2019/2020</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="exampleFormControlInput4">Semester</label>
-                        <select name="tahun_semester" class="form-control" id="exampleFormControinputState">
-                            <option value="Ganjil">Ganjil</option>
-                            <option value="Genap">Genap</option>
-                        </select>
-                        </div>
                 </div>
              <div class="form-row">
                 <div class="form-group col-md-6">

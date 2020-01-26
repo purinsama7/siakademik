@@ -16,7 +16,19 @@ class MapelController extends Controller
     public function create(Request $request)
     {
         //insert ke tabel Siswa
-        $mapel = \App\Mapel::create($request->all());
+        // $mapel = \App\Mapel::create($request->all());
+        $kode_mapel = $request->input('kode_mapel');
+        $nama_mapel = $request->input('nama_mapel');
+        $kkm = $request->input('kkm');
+        $grade = (100 - $kkm)/3;
+
+        $mapel = new Mapel;
+        $mapel->kode_mapel = $kode_mapel;
+        $mapel->nama_mapel = $nama_mapel;
+        $mapel->kkm = $kkm;
+        $mapel->grade = $grade;
+        $mapel->save();
+
         return redirect('/mapel')->with('Sukses','Data Berhasil Diinput.');
     }
     public function edit($id)
