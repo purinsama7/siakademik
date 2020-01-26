@@ -115,6 +115,22 @@
         <div class="modal-body">
             <form action="/nilai/create" method="POST">
                 {{ csrf_field() }}
+                <div class="col-sm-3">
+                    <label for="exampleFormControinputState">Tahun Ajaran</label>
+                    <select class="form-control" name="tahun" id="tahun">
+                        @foreach ($pilihtahun as $tahun)
+                            <option value="{{$tahun->id}},{{$tahun->tahun_pel}}">{{$tahun->tahun_pel}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label for="exampleFormControinputState">Semester</label>
+                    <select class="form-control" name="semester" id="semester">
+                        <option value="ganjil">Ganjil</option>
+                        <option value="genap">Genap</option>
+                        </select>
+                    </select>
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="exampleFormControinputState">SISWA</label>

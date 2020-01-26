@@ -35,9 +35,64 @@ class NilaiController extends Controller
 
     public function create(Request $request)
     {
+        if($request->input('uh1') === null){
+            $pembagi = 1;
+        }elseif($request->input('uh2') === null){
+            $pembagi = 2;
+        }elseif($request->input('uh3') === null){
+            $pembagi = 3;
+        }elseif($request->input('uh4') === null){
+            $pembagi = 4;
+        }elseif($request->input('uh5') === null){
+            $pembagi = 5;
+        }elseif($request->input('uh6') === null){
+            $pembagi = 6;
+        }elseif($request->input('uh7') === null){
+            $pembagi = 7;
+        }elseif($request->input('uh8') === null){
+            $pembagi = 8;
+        }elseif($request->input('uh9') === null){
+            $pembagi = 9;
+        }elseif($request->input('uh10') === null){
+            $pembagi = 10;
+        }elseif($request->input('uh11') === null){
+            $pembagi = 11;
+        }
+
+        $total = 
+            $request->input('uh1') + 
+            $request->input('uh2') + 
+            $request->input('uh3') + 
+            $request->input('uh4') + 
+            $request->input('uh5') + 
+            $request->input('uh6') + 
+            $request->input('uh7') + 
+            $request->input('uh8') +
+            $request->input('uh9') + 
+            $request->input('uh10') + 
+            $request->input('uh11');
+
+        $rataUh = $total/$pembagi;
+
+        $pilihtahun = explode(",", $request->input('tahun'));
+        dd($pilihtahun[0]);
+        $nilai = new Nilai;
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
+        $nilai->siswa_id = $request->input('siswa_id');
         //insert ke tabel Siswa
-        $nilai = \App\Nilai::create($request->all());
-        return redirect('/nilai')->with('Sukses','Data Berhasil Diinput.');
+        // $nilai = \App\Nilai::create($request->all());
+        // return redirect('/nilai')->with('Sukses','Data Berhasil Diinput.');
     }
     public function edit($id)
     {
