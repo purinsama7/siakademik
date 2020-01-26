@@ -124,6 +124,31 @@
                             @endforeach
                         </select>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput1">MAPEL</label>
+                    <select class="form-control" id="mapel" name="mapel_id">
+                        @foreach ($pilmapel as $mapel)
+                    <option value="{{$mapel->id}}">{{$mapel->nama_mapel}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput4">Tahun</label>
+                        <select name="tahun_tahun_pel" class="form-control" id="exampleFormControinputState">
+                            <option value="2017/2018">2017/2018</option>
+                            <option value="2018/2019">2018/2019</option>
+                            <option value="2019/2020">2019/2020</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlInput4">Semester</label>
+                        <select name="tahun_semester" class="form-control" id="exampleFormControinputState">
+                            <option value="Ganjil">Ganjil</option>
+                            <option value="Genap">Genap</option>
+                        </select>
+                        </div>
+                </div>
              <div class="form-row">
                 <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 1</label>
@@ -175,15 +200,15 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 11</label>
                 <input name="uh11" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 11">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                 <label for="exampleFormControlInput4">UTS</label>
                 <input name="uts" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UTS">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="exampleFormControlInput4">UAS</label>
                     <input name="uas" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UAS">
                     </div>
@@ -192,6 +217,7 @@
         <br/>
         <div class="modal-footer ">
             <br/>
+            <hr/>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
