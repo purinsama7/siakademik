@@ -13,6 +13,14 @@
                         <div class="panel-body">
                             <form action="/ketram/{{$nilai->id}}/update" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1">Siswa </label>
+                                    <input name="{{$nilai->siswa->id}}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" " value="{{ $nilai->siswa->nama_depan }}" >
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1">Mata Pelajaran </label>
+                                    <input name="{{$nilai->mapel->id}}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" " value="{{ $nilai->mapel->nama_mapel}}" >
+                                </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1">UH 1 </label>
                                 <input name="uh1" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="UH 1" value="{{ $nilai->uh1 }}" >

@@ -8,7 +8,7 @@ class Nilai extends Model
 {
     //
     protected $table ='nilai';
-    protected $fillable =['kelas_id','tahun_id','uh1', 'uh2', 'uh3', 'uh4', 'uh5', 'uh6', 'uh7', 'uh8', 'uh9', 'uh10', 'uh11', 'uts', 'uas', 'siswa_id'];
+    protected $fillable =['kelas_id','tahun_id','uh1', 'uh2', 'uh3', 'uh4', 'uh5', 'uh6', 'uh7', 'uh8', 'uh9', 'uh10', 'uh11', 'uts', 'uas', 'siswa_id','mapel_id', 'tahun_tahun_pel', 'tahun_semester'];
 
     public function mapel()
     {

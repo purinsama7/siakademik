@@ -16,10 +16,11 @@ class KetramController extends Controller
 {
     public function index(Request $request)
     {
-        $nilai_ketram = Ketram::all();
-        $pilihtahun = Tahun::all();
+        $pilihtahun = Tahun::groupBy('tahun_pel')->get();
         $pilsiswa = Siswa::all();
-        return view('nilai.keterampilan', compact('nilai_ketram','pilihtahun', 'pilsiswa'));
+        $data_ketram = Ketram::all();
+        $pilmapel = Mapel::all();
+        return view('nilai.keterampilan', compact('data_ketram','pilihtahun', 'pilsiswa','pilmapel'));
     }
     public function cek_nilai(Request $request)
     {

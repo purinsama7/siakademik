@@ -20,7 +20,8 @@ class NilaiController extends Controller
         $pilihtahun = Tahun::groupBy('tahun_pel')->get();
         $pilsiswa = Siswa::all();
         $data_nilai = Nilai::all();
-        return view('nilai.index', compact('data_nilai','pilihtahun', 'pilsiswa'));
+        $pilmapel = Mapel::all();
+        return view('nilai.index', compact('data_nilai','pilihtahun', 'pilsiswa','pilmapel'));
     }
 
     public function getNilai(Request $request)
@@ -29,8 +30,9 @@ class NilaiController extends Controller
         $semester = $request->input('semester');
         $pilihtahun = Tahun::groupBy('tahun_pel')->get();
         $pilsiswa = Siswa::all();
+        $pilmapel = Mapel::all();
         $data_nilai = Nilai::where('tahun_id', $tahun)->where('tahun_semester', $semester)->get();
-        return view('nilai.index', compact('data_nilai','pilihtahun', 'pilsiswa'));
+        return view('nilai.index', compact('data_nilai','pilihtahun', 'pilsiswa','pilmapel'));
     }
 
     public function create(Request $request)
@@ -97,7 +99,7 @@ class NilaiController extends Controller
     public function edit($id)
     {
         $nilai = \App\Nilai::find($id);
-        return view('nilai/edit',['nilai' => $nilai]);
+        return view('nilai/edit', compact('nilai'));
     }
     public function update(Request $request,$id)
     {

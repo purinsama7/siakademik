@@ -140,35 +140,58 @@
                             @endforeach
                         </select>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput1">MAPEL</label>
+                    <select class="form-control" id="mapel" name="mapel_id">
+                        @foreach ($pilmapel as $mapel)
+                    <option value="{{$mapel->id}}">{{$mapel->nama_mapel}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput4">Tahun</label>
+                        <select name="tahun_tahun_pel" class="form-control" id="exampleFormControinputState">
+                            <option value="2017/2018">2017/2018</option>
+                            <option value="2018/2019">2018/2019</option>
+                            <option value="2019/2020">2019/2020</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlInput4">Semester</label>
+                        <select name="tahun_semester" class="form-control" id="exampleFormControinputState">
+                            <option value="Ganjil">Ganjil</option>
+                            <option value="Genap">Genap</option>
+                        </select>
+                        </div>
+                </div>
              <div class="form-row">
                 <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 1</label>
                 <input name="uh1" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 1">
                 </div>
                 <div class="form-group col-md-6">
-                <label for="exampleFormControlInput4">UH 2</label>
-                <input name="uh2" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 2">
+                <label for="exampleFormControlInput6">UH 2</label>
+                <input name="uh2" type="text" class="form-control" id="exampleFormControlInput6" placeholder="UH 2">
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 3</label>
                 <input name="uh3" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 3">
                 </div>
-                <div class="form-group col-md-6">
-                <label for="exampleFormControlInput4">UH 4</label>
-                <input name="uh4" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 4">
-                </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-6">
+                <label for="exampleFormControlInput6">UH 4</label>
+                <input name="uh4" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 4">
+                </div>
                 <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 5</label>
                 <input name="uh5" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 5">
                 </div>
-                <div class="form-group col-md-6">
-                <label for="exampleFormControlInput4">UH 6</label>
-                <input name="uh6" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 6">
-                </div>
+            </div>
+            <div class="form-group col-md-6">
+            <label for="exampleFormControlInput6">UH 6</label>
+            <input name="uh6" type="text" class="form-control" id="exampleFormControlInput6" placeholder="UH 6">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -176,21 +199,19 @@
                 <input name="uh7" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 7">
                 </div>
                 <div class="form-group col-md-6">
-                <label for="exampleFormControlInput4">UH 8</label>
-                <input name="uh8" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 8">
+                <label for="exampleFormControlInput6">UH 8</label>
+                <input name="uh8" type="text" class="form-control" id="exampleFormControlInput6" placeholder="UH 8">
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">UH 9</label>
                 <input name="uh9" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 9">
                 </div>
-                <div class="form-group col-md-6">
-                <label for="exampleFormControlInput4">UH 10</label>
-                <input name="uh10" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UH 10">
-                </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-6">
+                <label for="exampleFormControlInput6">UH 10</label>
+                <input name="uh10" type="text" class="form-control" id="exampleFormControlInput6" placeholder="UH 10">
+                </div>
                 <div class="form-group col-md-4">
                 <label for="exampleFormControlInput1">UH 11</label>
                 <input name="uh11" type="text" class="form-control" id="exampleFormControlInput1" placeholder="UH 11">
@@ -199,21 +220,28 @@
                 <label for="exampleFormControlInput4">UTS</label>
                 <input name="uts" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UTS">
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="exampleFormControlInput4">UAS</label>
+                    <label for="exampleFormControlInput6">UAS</label>
                     <input name="uas" type="text" class="form-control" id="exampleFormControlInput4" placeholder="UAS">
                     </div>
-            </div>
-        </div>
-        <br/>
-        <div class="modal-footer ">
+                    <br/>
             <br/>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            <div class="form-row">
+                {{--=============================================================================================================--}}
+            </div>
+            <div class=" modal-footer">
+                <br/>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <br/>
         </div>
     </div>
-        </form>
+</form>
     </div>
+</div>
 </div>
 </div>
 @endsection

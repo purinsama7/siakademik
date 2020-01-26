@@ -44,6 +44,8 @@
 										<tr class=" text-center" role="row">
                                             <th class="text-center">Mata Pelajaran</th>
                                             <th class="text-center">NAMA SISWA</th>
+                                            <th class="text-center">TAHUN AJAR</th>
+                                            <th class="text-center">SEMESTER</th>
                                             <th class="text-center">UH1</th>
                                             <th class="text-center">UH2</th>
                                             <th class="text-center">UH3</th>
@@ -53,32 +55,38 @@
                                             <th class="text-center">UH7</th>
                                             <th class="text-center">UH8</th>
                                             <th class="text-center">UH9</th>
+                                            <th class="text-center">UH10</th>
+                                            <th class="text-center">UH11</th>
                                             <th class="text-center">UTS</th>
                                             <th class="text-center">UAS</th>
                                             <th class="text-center">OPSI</th>
-										</tr>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($nilai_ketram as $nilai)
+                                        @foreach($data_ketram as $ketram)
                                         <tr class="text-center">
-                                            <td>{{ $nilai->mapel->nama_mapel }}</td>
-                                            <td>{{ $nilai->siswa->nama_depan }}</td>
-                                            <td>{{ $nilai->uh1 }}</td>
-                                            <td>{{ $nilai->uh2 }}</td>
-                                            <td>{{ $nilai->uh3 }}</td>
-                                            <td>{{ $nilai->uh4 }}</td>
-                                            <td>{{ $nilai->uh5 }}</td>
-                                            <td>{{ $nilai->uh6 }}</td>
-                                            <td>{{ $nilai->uh7 }}</td>
-                                            <td>{{ $nilai->uh8 }}</td>
-                                            <td>{{ $nilai->uh9 }}</td>
-                                            <td>{{ $nilai->uts }}</td>
-                                            <td>{{ $nilai->uas }}</td>
+                                            <td>{{ $ketram->mapel->nama_mapel }}</td>
+                                            <td>{{ $ketram->siswa->nama_depan }}</td>
+                                            <td>{{ $ketram->tahun_tahun_pel }}</td>
+                                            <td>{{ $ketram->tahun_semester }}</td>
+                                            <td>{{ $ketram->uh1 }}</td>
+                                            <td>{{ $ketram->uh2 }}</td>
+                                            <td>{{ $ketram->uh3 }}</td>
+                                            <td>{{ $ketram->uh4 }}</td>
+                                            <td>{{ $ketram->uh5 }}</td>
+                                            <td>{{ $ketram->uh6 }}</td>
+                                            <td>{{ $ketram->uh7 }}</td>
+                                            <td>{{ $ketram->uh8 }}</td>
+                                            <td>{{ $ketram->uh9 }}</td>
+                                            <td>{{ $ketram->uh10 }}</td>
+                                            <td>{{ $ketram->uh11 }}</td>
+                                            <td>{{ $ketram->uts }}</td>
+                                            <td>{{ $ketram->uas }}</td>
                                             <td>
-                                                <a href="/ketram/{{$nilai->id}}/edit" class="btn btn-cirle btn-warning btn-sm">
+                                                <a href="/ketram/{{$ketram->id}}/edit" class="btn btn-cirle btn-warning btn-sm">
                                                     <i class="fa fa-edit" ></i>
                                                 </a>
-                                                <a href="/ketram/{{$nilai->id}}/delete" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Mau Hapus Data') ">
+                                                <a href="/ketram/{{$ketram->id}}/delete" class="btn btn-sm btn-danger" onclick="return confirm('Yakin Mau Hapus Data') ">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>
@@ -115,6 +123,31 @@
                         <option value="{{$siswa->id}}">{{$siswa->nama_depan}}</option>
                             @endforeach
                         </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput1">MAPEL</label>
+                    <select class="form-control" id="mapel" name="mapel_id">
+                        @foreach ($pilmapel as $mapel)
+                    <option value="{{$mapel->id}}">{{$mapel->nama_mapel}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput4">Tahun</label>
+                        <select name="tahun_tahun_pel" class="form-control" id="exampleFormControinputState">
+                            <option value="2017/2018">2017/2018</option>
+                            <option value="2018/2019">2018/2019</option>
+                            <option value="2019/2020">2019/2020</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlInput4">Semester</label>
+                        <select name="tahun_semester" class="form-control" id="exampleFormControinputState">
+                            <option value="Ganjil">Ganjil</option>
+                            <option value="Genap">Genap</option>
+                        </select>
+                        </div>
                 </div>
              <div class="form-row">
                 <div class="form-group col-md-6">
