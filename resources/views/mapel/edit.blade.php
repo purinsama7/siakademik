@@ -14,13 +14,16 @@
                             <form action="/mapel/{{$mapel->id}}/update" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                             <div class="form-group ">
-                                <label for="exampleInputEmail1">Nisn</label>
-                                <input name="kode_mapel" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan NISN" value="{{ $mapel->kode_mapel }}" >
+                                <label for="exampleFormControlInput1">Kode Mapel</label>
+                                <input name="kode_mapel" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kode Mapel" value="{{ $mapel->kode_mapel }}">
                             </div>
-                            <br/>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nisn</label>
-                                <input name="nama_mapel" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan NISN" value="{{ $mapel->nama_mapel }}" >
+                                <label for="exampleInputEmail1">Mata Pelajaran</label>
+                                <input name="nama_mapel" type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Mapel" value="{{ $mapel->nama_mapel }}" >
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">KKM</label>
+                                <input name="kkm" type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Mapel" value="{{ $mapel->kkm }}" >
                             </div>
                             </div>
                                 <div class="modal-footer">
